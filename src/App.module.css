@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Glass+Antiqua&family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+
+.mainContainer {
+  display: flexbox;
+  justify-content: center;
+  position: relative;
+  width: "100vw";
+  height: "100vh";
+}
+
+.robot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d;
+}
+
+.main-title {
+  font-family: "Bevan", serif;
+  font-weight: 400;
+  font-size: 200px;
+  font-style: italic;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  padding-bottom: 0;
+  pointer-events: none;
+}
+
+.down-arrow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  opacity: 70%;
+  animation-name: downArrow;
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes downArrow {
+  from {
+    opacity: 90%;
+  }
+  to {
+    opacity: 30%;
+  }
+}
+
+.who-are-we {
+  background-color: #000000;
+  margin-top: 50px;
+  padding: 10px;
+  /* border: 1px solid rgb(255, 255, 255); */
+  border-radius: 20px;
+  box-shadow: 0px 0px 40px 40px rgb(0 0 0);
+}
+
+.who-are-we-title {
+  font-family: "Nunito Sans", serif;
+  font-weight: 500;
+  font-size: 60px;
+  text-align: center;
+  margin-top: 0;
+}
+
+.who-are-we-text {
+  font-family: "Nunito Sans", serif;
+  font-weight: 500;
+  font-size: 30px;
+  margin: 30px;
+}
+
+.inspire-container {
+  position: relative;
+  height: 90vh;
+}
+
+.inspire-title {
+  position: absolute;
+  font-family: "Glass Antiqua", cursive;
+  font-weight: 400;
+  font-size: 150px;
+  font-style: normal;
+  margin: 0;
+  top: 30%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.contact-container {
+  position: relative;
+  height: 90vh;
+}
+
+.contact-title {
+  position: absolute;
+  font-family: "Lobster", cursive;
+  color: white;
+  width: fit-content;
+  font-weight: 400;
+  font-size: 150px;
+  text-align: center;
+  pointer-events: none;
+  left: 50%;
+  margin: 0;
+  top: 0;
+  transform: translate(-50%, 0);
+}
+
+.contact-icons {
+  position: absolute;
+  aspect-ratio: 1 / 1;
+  width: 100px;
+  border-radius: 30px;
+}
