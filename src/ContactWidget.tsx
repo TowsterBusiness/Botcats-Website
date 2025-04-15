@@ -217,21 +217,21 @@ function ContactWidget() {
           }}
         ></canvas>
         <img
-          src="/icons/email.jpg"
+          src="./icons/email.jpg"
           alt=""
           id="icon1"
           className={`${style["contact-icons"]}`}
           style={{ left: `${iconPos[0].x}px`, top: `${iconPos[0].y}px` }}
         />
         <img
-          src="/icons/instagram.png"
+          src="./icons/instagram.png"
           alt=""
           id="icon2"
           className={`${style["contact-icons"]}`}
           style={{ left: `${iconPos[1].x}px`, top: `${iconPos[1].y}px` }}
         />
         <img
-          src="/icons/youtube.jpg"
+          src="./icons/youtube.jpg"
           alt=""
           id="icon3"
           className={`${style["contact-icons"]}`}

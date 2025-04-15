@@ -121,13 +121,13 @@ function ArrowCanvas() {
 
       ctx.setLineDash([]);
       ctx.lineWidth = 4;
-      ctx.strokeStyle = "red";
+      ctx.strokeStyle = "#ff8a42";
       ctx.beginPath();
       ctx.moveTo(xPos, yPos);
       ctx.lineTo(xPos + xVel / 5, yPos + yVel / 5);
       ctx.stroke();
 
-      ctx.strokeStyle = "yellow";
+      ctx.strokeStyle = "white";
       ctx.beginPath();
       ctx.moveTo(xPos, yPos);
       ctx.lineTo(xPos + xAccel / 20, yPos + yAccel / 20);
@@ -144,7 +144,7 @@ function ArrowCanvas() {
         ctx.arc(bezierCp[i][0], bezierCp[i][1], 10, 0, 2 * Math.PI);
         ctx.stroke();
 
-        ctx.strokeStyle = "yellow";
+        ctx.strokeStyle = "#ff8a42";
         ctx.beginPath();
         ctx.moveTo(bezierCp[i][0], bezierCp[i][1]);
         ctx.lineTo(

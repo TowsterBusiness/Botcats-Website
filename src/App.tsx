@@ -56,7 +56,7 @@ function App() {
         <h1 className={`${style["main-title"]}`}>Botcats</h1>
         <a href="#who-are-we">
           <img
-            src="/down_arrow.png"
+            src="./down_arrow.png"
             alt=""
             className={`${style["down-arrow"]}`}
           />
@@ -64,12 +64,18 @@ function App() {
       </div>
       <div className={`${style["who-are-we"]}`} id="who-are-we">
         <h3 className={`${style["who-are-we-title"]}`}>Who are we?</h3>
-        <p className={`${style["who-are-we-text"]}`}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mollis
-          metus sed purus ultricies placerat. Sed gravida a est quis sodales.
-          Nulla eget lectus at nulla hendrerit luctus id laoreet sem. Etiam
-          varius quam vel nibh laoreet ultricies.
-        </p>
+        <div className={`${style["who-are-we-text-container"]}`}>
+          <p className={`${style["who-are-we-text"]}`}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+            mollis metus sed purus ultricies placerat. Sed gravida a est quis
+            sodales. Nulla eget lectus at nulla hendrerit luctus id laoreet sem.
+            Etiam varius quam vel nibh laoreet ultricies.
+          </p>
+        </div>
+        <img
+          src="./teamphoto.png"
+          className={`${style["who-are-we-photo"]}`}
+        ></img>
       </div>
       <div className={`${style["inspire-container"]}`}>
         <ArrowCanvas></ArrowCanvas>

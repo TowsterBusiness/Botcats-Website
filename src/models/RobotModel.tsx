@@ -15,7 +15,7 @@ export interface RobotModelProps {
 let currRot = [0.4, 2.5, 0];
 
 const RobotModel = (props: RobotModelProps) => {
-  const { scene } = useGLTF("/Clawthing.glb");
+  const { scene } = useGLTF("./Clawthing.glb");
 
   const ref = React.useRef<Mesh>(null);
 

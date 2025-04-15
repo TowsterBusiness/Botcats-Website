@@ -67,6 +67,16 @@
   margin-top: 0;
 }
 
+.who-are-we-photo {
+  width: 45%;
+}
+
+.who-are-we-text-container {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+}
+
 .who-are-we-text {
   font-family: "Nunito Sans", serif;
   font-weight: 500;
