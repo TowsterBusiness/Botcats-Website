@@ -4,6 +4,7 @@ import { Canvas, useLoader, useFrame } from "@react-three/fiber";
 import RobotModel from "./models/RobotModel";
 import ArrowCanvas from "./ArrowCanvas";
 import ContactWidget from "./ContactWidget";
+import GridCanvas from "./GridCanvas";
 
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -40,6 +41,7 @@ function App() {
   return (
     <>
       <div className={style.mainContainer}>
+        <GridCanvas cellSize={100}></GridCanvas>
         <Canvas
           className={`${style.robot}`}
           style={{
