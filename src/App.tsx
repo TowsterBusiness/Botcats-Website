@@ -55,7 +55,7 @@ function App() {
           <directionalLight position={[100, 100, 50]}></directionalLight>
           <RobotModel scrollPosition={scrollPosition} mousePos={mousePos} />
         </Canvas>
-        <h1 className={`${style["main-title"]}`}>Botcats</h1>
+        <h1 className={`${style["main-title"]}`}>BOTCATS</h1>
         <a href="#who-are-we">
           <img
             src="./down_arrow.png"
@@ -84,6 +84,13 @@ function App() {
         <h2 className={`${style["inspire-title"]}`}>Inspire</h2>
       </div>
       <ContactWidget></ContactWidget>
+      <div className={`${style["sponsors-container"]}`}>
+        <h1 className={`${style["sponsors-title"]}`}>Our Sponsors:</h1>
+        <img
+          src="./sponsors.png"
+          className={`${style["sponsors-image"]}`}
+        ></img>
+      </div>
     </>
   );
 }

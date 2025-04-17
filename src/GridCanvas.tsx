@@ -29,14 +29,14 @@ const GridCanvas: React.FC<GridCanvasProps> = ({
         ctx.strokeStyle = gridColor;
         for (let i = 0; i * cellSize <= canvas.height; i++) {
           ctx.beginPath();
-          ctx.moveTo(0, i * cellSize);
-          ctx.lineTo(canvas.width, i * cellSize);
+          ctx.moveTo(0, i * cellSize - 5);
+          ctx.lineTo(canvas.width, i * cellSize - 5);
           ctx.stroke();
         }
         for (let j = 0; j * cellSize <= canvas.width; j++) {
           ctx.beginPath();
-          ctx.moveTo(j * cellSize, 0);
-          ctx.lineTo(j * cellSize, canvas.width);
+          ctx.moveTo(j * cellSize - 5, 0);
+          ctx.lineTo(j * cellSize - 5, canvas.width);
           ctx.stroke();
         }
       }
