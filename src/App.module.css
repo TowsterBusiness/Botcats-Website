@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Glass+Antiqua&family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Glass+Antiqua&family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Shrikhand&display=swap");
 
 .mainContainer {
   display: flexbox;
@@ -17,10 +17,10 @@
 }
 
 .main-title {
-  font-family: "Bevan", serif;
+  font-family: "Shrikhand", serif;
   font-weight: 400;
-  font-size: 200px;
-  font-style: italic;
+  font-size: 250px;
+  font-style: bold italic;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -144,7 +144,7 @@
 
 .contact-container {
   position: relative;
-  height: 90vh;
+  height: 600px;
 }
 
 .contact-title {
@@ -167,4 +167,28 @@
   aspect-ratio: 1 / 1;
   width: 100px;
   border-radius: 30px;
+}
+
+.sponsors-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border-top: 10px solid #ff8a42;
+  box-shadow: 0px 0px 10px 10px #ff8a42;
+}
+
+.sponsors-title {
+  font-family: "Bevan", serif;
+  font-weight: 500;
+  font-size: 60px;
+  text-align: center;
+  margin: 0;
+  color: #ff8a42;
+}
+
+.sponsors-image {
+  margin: auto;
+  width: 50%;
 }

@@ -4,6 +4,7 @@ import { Canvas, useLoader, useFrame } from "@react-three/fiber";
 import RobotModel from "./models/RobotModel";
 import ArrowCanvas from "./ArrowCanvas";
 import ContactWidget from "./ContactWidget";
+import GridCanvas from "./GridCanvas";
 
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -34,6 +35,7 @@ function App() {
   return (
     <>
       <div className={style.mainContainer}>
+        <GridCanvas cellSize={100}></GridCanvas>
         <Canvas
           className={`${style.robot}`}
           style={{
@@ -47,7 +49,7 @@ function App() {
           <directionalLight position={[100, 100, 50]}></directionalLight>
           <RobotModel scrollPosition={scrollPosition} mousePos={mousePos} />
         </Canvas>
-        <h1 className={`${style["main-title"]}`}>Botcats</h1>
+        <h1 className={`${style["main-title"]}`}>BOTCATS</h1>
         <a href="#who-are-we">
           <img
             src="./down_arrow.png"
@@ -121,6 +123,13 @@ function App() {
         
       </div>
       <ContactWidget></ContactWidget>
+      <div className={`${style["sponsors-container"]}`}>
+        <h1 className={`${style["sponsors-title"]}`}>Our Sponsors:</h1>
+        <img
+          src="./sponsors.png"
+          className={`${style["sponsors-image"]}`}
+        ></img>
+      </div>
     </>
   );
 }
