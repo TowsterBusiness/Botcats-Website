@@ -8,12 +8,6 @@ import ContactWidget from "./ContactWidget";
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [mousePos, setMousePos] = useState([0, 0]);
-  const [titleRotation, setTitleRotation] = useState({ x: 0, y: 0 });
-  const [iconPos, setIconPos] = useState([
-    { x: 0, y: 0 },
-    { x: 0, y: 0 },
-    { x: 0, y: 0 },
-  ]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,8 +72,53 @@ function App() {
         ></img>
       </div>
       <div className={`${style["inspire-container"]}`}>
+        <img style={{
+            width: "150%",
+            bottom: "25%",
+            right: "5%"
+          }} className={`${style["inspire-math"]}`} src="./hermitespline.svg"> 
+        </img>
         <ArrowCanvas></ArrowCanvas>
         <h2 className={`${style["inspire-title"]}`}>Inspire</h2>
+        <img style={{
+          width: "40%",
+          left: "10%",
+          bottom: "10%",
+          animationDelay: `2000ms`
+        }} src="./inspire/sideplate1.png" className={`${style["inspire-images"]}`}></img>
+        <img style={{
+          width: "20%",
+          top: "15%",
+          right: "10%",
+          animationDelay: `0ms`
+        }} src="./inspire/Autoclawspecimen.png" className={`${style["inspire-images"]}`}></img>
+        <img style={{
+          width: "25%",
+          top: "30%",
+          left: "40%",
+          animationDelay: `5000ms`
+        }} src="./inspire/slides.png" className={`${style["inspire-images"]}`}></img>
+        <p style={{
+          width: "30%",
+          top: "25%",
+          left: "5%"
+        }} className={`${style["inspire-text"]}`}> 
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+        mollis metus sed purus ultricies placerat. Sed gravida a est quis
+        sodales.
+        </p>
+        <p style={{
+          width: "30%",
+          bottom: "25%",
+          right: "5%",
+          textAlign: "right"
+        }} className={`${style["inspire-text"]}`}> 
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+        mollis metus sed purus ultricies placerat. Sed gravida a est quis
+        sodales.
+        </p>
+        
+        
       </div>
       <ContactWidget></ContactWidget>
     </>

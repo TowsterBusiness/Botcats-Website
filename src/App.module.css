@@ -86,7 +86,47 @@
 
 .inspire-container {
   position: relative;
-  height: 90vh;
+  height: 150vh;
+}
+
+.inspire-images {
+  position: absolute;
+  pointer-events: none;
+  opacity: 90%;
+  transition-duration: 100ms;
+  animation-name: inspireImage;
+  animation-duration: 2s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.inspire-images :hover {
+  background-color: red;
+  opacity: 2%;
+}
+
+.inspire-text {
+  position: absolute;
+  font-family: "Glass Antiqua", cursive;
+  font-weight: 400;
+  font-size: 30px;
+  font-style: bold;
+}
+
+.inspire-math {
+  position: absolute;
+  fill: red;
+  color: red;
+}
+
+@keyframes inspireImage {
+  from {
+    transform: translate(0, 20px);
+  }
+  to {
+    transform: translate(0, -20px);
+  }
 }
 
 .inspire-title {
@@ -96,7 +136,7 @@
   font-size: 150px;
   font-style: normal;
   margin: 0;
-  top: 30%;
+  top: 15%;
   left: 25%;
   transform: translate(-50%, -50%);
   pointer-events: none;

@@ -2,15 +2,15 @@ import { useFrame } from "@react-three/fiber";
 import React, { useState, useEffect } from "react";
 
 const bezierCpPer = [
-  [0.42, 0.33],
-  [0.9, 0.38],
+  [0.42, 0.15],
+  [0.9, 0.30],
   [0.2, 0.7],
   [0.7, 0.8],
 ];
 
 const bezierCv = [
   [700, 0],
-  [0, 600],
+  [0, 1000],
   [0, 600],
   [600, 0],
 ];
