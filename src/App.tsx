@@ -76,7 +76,8 @@ function App() {
       <div className={`${style["inspire-container"]}`}>
         <img style={{
             width: "150%",
-            bottom: "25%",
+            bottom: "0",
+            transform: "translate(0, -100%)",
             right: "5%"
           }} className={`${style["inspire-math"]}`} src="./hermitespline.svg"> 
         </img>
