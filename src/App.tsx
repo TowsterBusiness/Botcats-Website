@@ -62,10 +62,20 @@ function App() {
         <h3 className={`${style["who-are-we-title"]}`}>Who are we?</h3>
         <div className={`${style["who-are-we-text-container"]}`}>
           <p className={`${style["who-are-we-text"]}`}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-            mollis metus sed purus ultricies placerat. Sed gravida a est quis
-            sodales. Nulla eget lectus at nulla hendrerit luctus id laoreet sem.
-            Etiam varius quam vel nibh laoreet ultricies.
+            <span className={`${style["bold"]}`}>Botcats</span> is a FTC
+            Robotics team based in San Diego. Botcats hopes to{" "}
+            <span className={`${style["bold"]}`}>
+              inspire and educate all future engineers
+            </span>{" "}
+            to develop their interests and be inspired to take on any future
+            dreams by spreading inspiration and the core values of{" "}
+            <span className={`${style["bold"]}`}>FIRST</span> to our community.
+            We hope to provide the tools, resources, and opportunities necessary
+            for students to grow and succeed in a world where technology is
+            integral to everyday society. As we expand as a team, we have a
+            truly{" "}
+            <span className={`${style["bold"]}`}>unparalleled opportunity</span>{" "}
+            to prepare students for the next stages of their life.
           </p>
         </div>
         <img
@@ -74,56 +84,72 @@ function App() {
         ></img>
       </div>
       <div className={`${style["inspire-container"]}`}>
-        <img style={{
+        <img
+          style={{
             width: "150%",
             bottom: "0",
             transform: "translate(0, -100%)",
-            right: "5%"
-          }} className={`${style["inspire-math"]}`} src="./hermitespline.svg"> 
-        </img>
+            right: "5%",
+          }}
+          className={`${style["inspire-math"]}`}
+          src="./hermitespline.svg"
+        ></img>
         <ArrowCanvas></ArrowCanvas>
         <h2 className={`${style["inspire-title"]}`}>Inspire</h2>
-        <img style={{
-          width: "40%",
-          left: "10%",
-          bottom: "10%",
-          animationDelay: `2000ms`
-        }} src="./inspire/sideplate1.png" className={`${style["inspire-images"]}`}></img>
-        <img style={{
-          width: "20%",
-          top: "15%",
-          right: "10%",
-          animationDelay: `0ms`
-        }} src="./inspire/Autoclawspecimen.png" className={`${style["inspire-images"]}`}></img>
-        <img style={{
-          width: "25%",
-          top: "30%",
-          left: "40%",
-          animationDelay: `5000ms`
-        }} src="./inspire/slides.png" className={`${style["inspire-images"]}`}></img>
-        <p style={{
-          width: "30%",
-          top: "25%",
-          left: "5%"
-        }} className={`${style["inspire-text"]}`}> 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-        mollis metus sed purus ultricies placerat. Sed gravida a est quis
-        sodales.
+        <img
+          style={{
+            width: "40%",
+            left: "10%",
+            bottom: "10%",
+            animationDelay: `2000ms`,
+          }}
+          src="./inspire/sideplate1.png"
+          className={`${style["inspire-images"]}`}
+        ></img>
+        <img
+          style={{
+            width: "20%",
+            top: "15%",
+            right: "10%",
+            animationDelay: `0ms`,
+          }}
+          src="./inspire/Autoclawspecimen.png"
+          className={`${style["inspire-images"]}`}
+        ></img>
+        <img
+          style={{
+            width: "25%",
+            top: "15%",
+            left: "45%",
+            animationDelay: `5000ms`,
+          }}
+          src="./inspire/slides.png"
+          className={`${style["inspire-images"]}`}
+        ></img>
+        <p
+          style={{
+            width: "30%",
+            top: "25%",
+            left: "5%",
+          }}
+          className={`${style["inspire-text"]}`}
+        >
+          Our new Spring Loaded claw allows us to grab and release specimens
+          quickly and simply without the use of a servo for grabbing.
         </p>
-        <p style={{
-          width: "30%",
-          bottom: "25%",
-          right: "5%",
-          textAlign: "right"
-        }} className={`${style["inspire-text"]}`}> 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-        mollis metus sed purus ultricies placerat. Sed gravida a est quis
-        sodales.
+        <p
+          style={{
+            width: "30%",
+            bottom: "25%",
+            right: "5%",
+            textAlign: "right",
+          }}
+          className={`${style["inspire-text"]}`}
+        >
+          On the end of the horizontal slides, we have a rotating arm intake
+          with a rotating claw that grabs from the inside of the samples.
         </p>
-        
-        
       </div>
-      <ContactWidget></ContactWidget>
       <div className={`${style["sponsors-container"]}`}>
         <h1 className={`${style["sponsors-title"]}`}>Our Sponsors:</h1>
         <img
@@ -131,6 +157,7 @@ function App() {
           className={`${style["sponsors-image"]}`}
         ></img>
       </div>
+      <ContactWidget></ContactWidget>
     </>
   );
 }

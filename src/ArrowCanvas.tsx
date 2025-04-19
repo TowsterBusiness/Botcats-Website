@@ -1,9 +1,10 @@
 import { useFrame } from "@react-three/fiber";
 import React, { useState, useEffect } from "react";
+import style from "./App.module.css";
 
 const bezierCpPer = [
   [0.42, 0.15],
-  [0.9, 0.30],
+  [0.9, 0.3],
   [0.2, 0.7],
   [0.7, 0.8],
 ];
@@ -18,6 +19,8 @@ const bezierCv = [
 let isMouseDown = false;
 let velSelect = false;
 let selectIndex = 0;
+
+let isDragged = true;
 
 function ArrowCanvas() {
   let arrowCanvasRef: React.RefObject<HTMLCanvasElement> =
@@ -160,66 +163,74 @@ function ArrowCanvas() {
   }, []);
 
   return (
-    <canvas
-      style={{ position: "absolute" }}
-      ref={arrowCanvasRef}
-      onMouseDown={(evt: any) => {
-        const canvas = arrowCanvasRef.current;
-        if (canvas == null) return;
-        const x = evt.nativeEvent.offsetX;
-        const y = evt.nativeEvent.offsetY;
-        for (let i = 0; i < bezierCpPer.length; i++) {
-          if (
-            Math.pow(bezierCpPer[i][0] * canvas.width - x, 2) +
-              Math.pow(bezierCpPer[i][1] * canvas.height - y, 2) <=
-            130
-          ) {
-            isMouseDown = true;
-            velSelect = false;
-            selectIndex = i;
-            return;
-          }
-        }
-
-        for (let i = 0; i < bezierCv.length; i++) {
-          if (
-            Math.pow(
-              bezierCpPer[i][0] * canvas.width + bezierCv[i][0] / 5 - x,
-              2
-            ) +
-              Math.pow(
-                bezierCpPer[i][1] * canvas.height + bezierCv[i][1] / 5 - y,
-                2
-              ) <=
-            130
-          ) {
-            isMouseDown = true;
-            velSelect = true;
-            selectIndex = i;
-            return;
-          }
-        }
-      }}
-      onMouseUp={() => {
-        isMouseDown = false;
-      }}
-      onMouseMove={(evt: any) => {
-        const canvas = arrowCanvasRef.current;
-        if (canvas == null) return;
-        if (isMouseDown) {
+    <>
+      <canvas
+        style={{ position: "absolute" }}
+        ref={arrowCanvasRef}
+        onMouseDown={(evt: any) => {
+          const canvas = arrowCanvasRef.current;
+          if (canvas == null) return;
           const x = evt.nativeEvent.offsetX;
           const y = evt.nativeEvent.offsetY;
-          if (velSelect) {
-            bezierCv[selectIndex] = [
-              (x - bezierCpPer[selectIndex][0] * canvas.width) * 5,
-              (y - bezierCpPer[selectIndex][1] * canvas.height) * 5,
-            ];
-          } else {
-            bezierCpPer[selectIndex] = [x / canvas.width, y / canvas.height];
+          for (let i = 0; i < bezierCpPer.length; i++) {
+            if (
+              Math.pow(bezierCpPer[i][0] * canvas.width - x, 2) +
+                Math.pow(bezierCpPer[i][1] * canvas.height - y, 2) <=
+              130
+            ) {
+              isMouseDown = true;
+              velSelect = false;
+              selectIndex = i;
+              return;
+            }
           }
-        }
-      }}
-    ></canvas>
+
+          for (let i = 0; i < bezierCv.length; i++) {
+            if (
+              Math.pow(
+                bezierCpPer[i][0] * canvas.width + bezierCv[i][0] / 5 - x,
+                2
+              ) +
+                Math.pow(
+                  bezierCpPer[i][1] * canvas.height + bezierCv[i][1] / 5 - y,
+                  2
+                ) <=
+              130
+            ) {
+              isMouseDown = true;
+              velSelect = true;
+              selectIndex = i;
+              return;
+            }
+          }
+        }}
+        onMouseUp={() => {
+          isMouseDown = false;
+        }}
+        onMouseMove={(evt: any) => {
+          const canvas = arrowCanvasRef.current;
+          if (canvas == null) return;
+          if (isMouseDown) {
+            const x = evt.nativeEvent.offsetX;
+            const y = evt.nativeEvent.offsetY;
+            isDragged = false;
+            if (velSelect) {
+              bezierCv[selectIndex] = [
+                (x - bezierCpPer[selectIndex][0] * canvas.width) * 5,
+                (y - bezierCpPer[selectIndex][1] * canvas.height) * 5,
+              ];
+            } else {
+              bezierCpPer[selectIndex] = [x / canvas.width, y / canvas.height];
+            }
+          }
+        }}
+      ></canvas>
+      {isDragged ? (
+        <p className={`${style["inspire-drag"]}`}>Drag The Dots!</p>
+      ) : (
+        <></>
+      )}
+    </>
   );
 }
 

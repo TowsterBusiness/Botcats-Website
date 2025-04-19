@@ -7,11 +7,22 @@ let iconSelectIndex = 0;
 function ContactWidget() {
   let arrowCanvasRef: React.RefObject<HTMLCanvasElement> =
     React.createRef<HTMLCanvasElement>();
+  const [backHeight, setBackHeight] = useState(600);
   const [iconPos, setIconPos] = useState([
     { x: 0, y: 0 },
     { x: 0, y: 0 },
     { x: 0, y: 0 },
   ]);
+  let speeds = [10, 13, 4, 20, 16, 8];
+  let delay = [1, 1.8, 2, 1.6, 0.5, 0];
+  let text = [
+    "Teaching",
+    "Community",
+    "Team Bonding",
+    "Sponsorships",
+    "Mentorship",
+    "Hard-Working",
+  ];
 
   useEffect(() => {
     const canvas = arrowCanvasRef.current;
@@ -140,7 +151,7 @@ function ContactWidget() {
     };
     animate();
 
-    const handleMouseMove = (event: MouseEvent) => {
+    const connection = (event: MouseEvent) => {
       const contactRect = document
         .getElementById("contact-container")
         ?.getBoundingClientRect();
@@ -195,16 +206,55 @@ function ContactWidget() {
       }
     };
 
+    const handleMouseMove = (event: MouseEvent) => {
+      connection(event);
+    };
+
+    const handleResize = (event: Event) => {
+      const contactRect = document
+        .getElementById("contact-container")
+        ?.getBoundingClientRect();
+
+      if (contactRect == null) return;
+
+      let { left, top, width, height } = contactRect;
+
+      setBackHeight(height);
+    };
+
     window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const renderBackground = () => {
+    let backList = [];
+    for (let i = 0; i < 6; i++) {
+      backList.push(
+        <p
+          style={{
+            fontSize: `${backHeight / 6}px`,
+            animationDuration: `${speeds[i]}s`,
+            top: `${(backHeight / 6) * i - 50}px`,
+            animationDelay: `${delay[i]}s`,
+          }}
+          className={`${style["contact-background"]}`}
+        >
+          {text[i]}
+        </p>
+      );
+    }
+    return backList;
+  };
 
   return (
     <>
       <div className={`${style["contact-container"]}`} id="contact-container">
+        {renderBackground()}
         <h2 className={`${style["contact-title"]}`} id="contact-title">
           Reach Us!
         </h2>
@@ -216,27 +266,33 @@ function ContactWidget() {
             if (canvas == null) return;
           }}
         ></canvas>
-        <img
-          src="./icons/email.jpg"
-          alt=""
-          id="icon1"
-          className={`${style["contact-icons"]}`}
-          style={{ left: `${iconPos[0].x}px`, top: `${iconPos[0].y}px` }}
-        />
-        <img
-          src="./icons/instagram.png"
-          alt=""
-          id="icon2"
-          className={`${style["contact-icons"]}`}
-          style={{ left: `${iconPos[1].x}px`, top: `${iconPos[1].y}px` }}
-        />
-        <img
-          src="./icons/youtube.jpg"
-          alt=""
-          id="icon3"
-          className={`${style["contact-icons"]}`}
-          style={{ left: `${iconPos[2].x}px`, top: `${iconPos[2].y}px` }}
-        />
+        <a href="mailto:schsbotcats8097@gmail.com">
+          <img
+            src="./icons/email.jpg"
+            alt=""
+            id="icon1"
+            className={`${style["contact-icons"]}`}
+            style={{ left: `${iconPos[0].x}px`, top: `${iconPos[0].y}px` }}
+          />
+        </a>
+        <a href="https://www.instagram.com/botcats8097/">
+          <img
+            src="./icons/instagram.png"
+            alt=""
+            id="icon2"
+            className={`${style["contact-icons"]}`}
+            style={{ left: `${iconPos[1].x}px`, top: `${iconPos[1].y}px` }}
+          />
+        </a>
+        <a href="https://www.youtube.com/watch?v=rvuVE6onTY0">
+          <img
+            src="./icons/youtube.jpg"
+            alt=""
+            id="icon3"
+            className={`${style["contact-icons"]}`}
+            style={{ left: `${iconPos[2].x}px`, top: `${iconPos[2].y}px` }}
+          />
+        </a>
       </div>
     </>
   );

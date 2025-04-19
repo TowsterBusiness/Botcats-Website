@@ -1,6 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Glass+Antiqua&family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Shrikhand&display=swap");
 
+.bold {
+  color: #ff8a42;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .mainContainer {
   display: flexbox;
   justify-content: center;
@@ -142,6 +148,18 @@
   pointer-events: none;
 }
 
+.inspire-drag {
+  position: absolute;
+  font-family: "Glass Antiqua", cursive;
+  font-weight: 400;
+  font-size: 30px;
+  font-style: normal;
+  margin: 0;
+  top: 16%;
+  left: 40%;
+  pointer-events: none;
+}
+
 .contact-container {
   position: relative;
   height: 600px;
@@ -169,26 +187,45 @@
   border-radius: 30px;
 }
 
+.contact-background {
+  position: absolute;
+  font-family: "Lobster", cursive;
+  margin: 0;
+  color: #363636;
+  white-space: nowrap;
+  animation-name: scrollText;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes scrollText {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
 .sponsors-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(255, 255, 255);
-  border-top: 10px solid #ff8a42;
-  box-shadow: 0px 0px 10px 10px #ff8a42;
 }
 
 .sponsors-title {
   font-family: "Bevan", serif;
   font-weight: 500;
-  font-size: 60px;
+  font-size: 100px;
   text-align: center;
   margin: 0;
-  color: #ff8a42;
+  color: white;
 }
 
 .sponsors-image {
   margin: auto;
+  padding: 50px;
+  padding-bottom: 100px;
   width: 50%;
 }
