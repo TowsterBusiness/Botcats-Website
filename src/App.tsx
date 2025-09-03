@@ -5,6 +5,7 @@ import RobotModel from "./models/RobotModel";
 import ArrowCanvas from "./ArrowCanvas";
 import ContactWidget from "./ContactWidget";
 import GridCanvas from "./GridCanvas";
+import ScrollingInfo from "./ScrollingInfo";
 
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -83,6 +84,7 @@ function App() {
           className={`${style["who-are-we-photo"]}`}
         ></img>
       </div>
+      <ScrollingInfo></ScrollingInfo>
       <div className={`${style["inspire-container"]}`}>
         <img
           style={{
