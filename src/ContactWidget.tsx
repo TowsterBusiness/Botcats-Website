@@ -275,7 +275,7 @@ function ContactWidget() {
             style={{ left: `${iconPos[0].x}px`, top: `${iconPos[0].y}px` }}
           />
         </a>
-        <a href="https://www.instagram.com/botcats8097/">
+        <a href="https://www.instagram.com/botcats8097/" target="_blank">
           <img
             src="./icons/instagram.png"
             alt=""
@@ -284,7 +284,7 @@ function ContactWidget() {
             style={{ left: `${iconPos[1].x}px`, top: `${iconPos[1].y}px` }}
           />
         </a>
-        <a href="https://www.youtube.com/watch?v=rvuVE6onTY0">
+        <a href="https://www.youtube.com/watch?v=rvuVE6onTY0" target="_blank">
           <img
             src="./icons/youtube.jpg"
             alt=""

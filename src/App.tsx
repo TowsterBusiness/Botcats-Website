@@ -5,12 +5,68 @@ import RobotModel from "./models/RobotModel";
 import ArrowCanvas from "./ArrowCanvas";
 import ContactWidget from "./ContactWidget";
 import GridCanvas from "./GridCanvas";
+import { floorPowerOfTwo } from "three/src/math/MathUtils";
+
+let titleTextStore = "__TEAM_";
 
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [mousePos, setMousePos] = useState([0, 0]);
+  const [titleText, setTitleText] = useState([
+    ".",
+    ".",
+    ".",
+    ".",
+    ".",
+    ".",
+    ".",
+  ]);
+  const [titleTextColors, setTitleTextColors] = useState([
+    "#b8b8b855",
+    "#b8b8b855",
+    "#b8b8b855",
+    "#b8b8b855",
+    "#b8b8b855",
+    "#b8b8b855",
+    "#b8b8b855",
+  ]);
+
+  let firstA = true;
 
   useEffect(() => {
+    function getRandomChar() {
+      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefgh";
+      return chars[Math.floor(Math.random() * chars.length)];
+    }
+
+    function setCharAt(str: string, index: number, char: string) {
+      return str.substring(0, index) + char + str.substring(index + 1);
+    }
+
+    function updateTitle() {
+      let targetText = "BOTCATS";
+
+      for (let i = 0; i < titleText.length; i++) {
+        if (i == 4 && firstA) {
+          titleTextStore = setCharAt(titleTextStore, i, getRandomChar());
+          firstA = false;
+        }
+        if (titleTextStore[i] != targetText[i]) {
+          titleTextStore = setCharAt(titleTextStore, i, getRandomChar());
+          break;
+        } else {
+          titleTextColors[i] = "#ffffffde";
+        }
+      }
+
+      setTitleTextColors(titleTextColors);
+      setTitleText(titleTextStore.split(""));
+
+      setTimeout(updateTitle, 50);
+    }
+
+    updateTitle();
+
     const handleScroll = () => {
       setScrollPosition(window.scrollY); // Track the vertical scroll position
     };
@@ -49,7 +105,15 @@ function App() {
           <directionalLight position={[100, 100, 50]}></directionalLight>
           <RobotModel scrollPosition={scrollPosition} mousePos={mousePos} />
         </Canvas>
-        <h1 className={`${style["main-title"]}`}>BOTCATS</h1>
+        <h1 className={`${style["main-title"]}`}>
+          {titleText.map((c, i) => {
+            return (
+              <span key={i} style={{ color: titleTextColors[i] }}>
+                {c}
+              </span>
+            );
+          })}
+        </h1>
         <a href="#who-are-we">
           <img
             src="./down_arrow.png"
@@ -60,28 +124,32 @@ function App() {
       </div>
       <div className={`${style["who-are-we"]}`} id="who-are-we">
         <h3 className={`${style["who-are-we-title"]}`}>Who are we?</h3>
-        <div className={`${style["who-are-we-text-container"]}`}>
-          <p className={`${style["who-are-we-text"]}`}>
-            <span className={`${style["bold"]}`}>Botcats</span> is a FTC
-            Robotics team based in San Diego. Botcats hopes to{" "}
-            <span className={`${style["bold"]}`}>
-              inspire and educate all future engineers
-            </span>{" "}
-            to develop their interests and be inspired to take on any future
-            dreams by spreading inspiration and the core values of{" "}
-            <span className={`${style["bold"]}`}>FIRST</span> to our community.
-            We hope to provide the tools, resources, and opportunities necessary
-            for students to grow and succeed in a world where technology is
-            integral to everyday society. As we expand as a team, we have a
-            truly{" "}
-            <span className={`${style["bold"]}`}>unparalleled opportunity</span>{" "}
-            to prepare students for the next stages of their life.
-          </p>
+        <div className={`${style["who-are-we-main-container"]}`}>
+          <div className={`${style["who-are-we-text-container"]}`}>
+            <p className={`${style["who-are-we-text"]}`}>
+              <span className={`${style["bold"]}`}>Botcats</span> is a FTC
+              Robotics team based in San Diego. Botcats hopes to{" "}
+              <span className={`${style["bold"]}`}>
+                inspire and educate all future engineers
+              </span>{" "}
+              to develop their interests and be inspired to take on any future
+              dreams by spreading inspiration and the core values of{" "}
+              <span className={`${style["bold"]}`}>FIRST</span> to our
+              community. We hope to provide the tools, resources, and
+              opportunities necessary for students to grow and succeed in a
+              world where technology is integral to everyday society. As we
+              expand as a team, we have a truly{" "}
+              <span className={`${style["bold"]}`}>
+                unparalleled opportunity
+              </span>{" "}
+              to prepare students for the next stages of their life.
+            </p>
+          </div>
+          <img
+            src="./teamphoto.png"
+            className={`${style["who-are-we-photo"]}`}
+          ></img>
         </div>
-        <img
-          src="./teamphoto.png"
-          className={`${style["who-are-we-photo"]}`}
-        ></img>
       </div>
       <div className={`${style["inspire-container"]}`}>
         <img
@@ -119,8 +187,8 @@ function App() {
         <img
           style={{
             width: "25%",
-            top: "15%",
-            left: "45%",
+            top: "30%",
+            left: "40%",
             animationDelay: `5000ms`,
           }}
           src="./inspire/slides.png"
@@ -158,6 +226,15 @@ function App() {
         ></img>
       </div>
       <ContactWidget></ContactWidget>
+      <p
+        style={{
+          textAlign: "center",
+          color: "gray",
+        }}
+      >
+        Site design / logo © 2025 made by Tyler K. under FIRST Tech Robotics;
+        licensed under CC BY-SA . updated 2025-4-18
+      </p>
     </>
   );
 }
