@@ -8,6 +8,7 @@ import GridCanvas from "./GridCanvas";
 import { floorPowerOfTwo } from "three/src/math/MathUtils";
 
 let titleTextStore = "__TEAM_";
+import ScrollingInfo from "./ScrollingInfo";
 
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -151,6 +152,7 @@ function App() {
           ></img>
         </div>
       </div>
+      <ScrollingInfo></ScrollingInfo>
       <div className={`${style["inspire-container"]}`}>
         <img
           style={{
