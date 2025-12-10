@@ -36,7 +36,7 @@ function App() {
 
   useEffect(() => {
     function getRandomChar() {
-      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefgh";
+      const chars = "ABCEFHIJKLMOPQSTUabcdefgh";
       return chars[Math.floor(Math.random() * chars.length)];
     }
 
@@ -166,16 +166,7 @@ function App() {
         ></img>
         <ArrowCanvas></ArrowCanvas>
         <h2 className={`${style["inspire-title"]}`}>Inspire</h2>
-        <img
-          style={{
-            width: "40%",
-            left: "10%",
-            bottom: "10%",
-            animationDelay: `2000ms`,
-          }}
-          src="./inspire/sideplate1.png"
-          className={`${style["inspire-images"]}`}
-        ></img>
+
         <img
           style={{
             width: "20%",
@@ -194,6 +185,16 @@ function App() {
             animationDelay: `5000ms`,
           }}
           src="./inspire/slides.png"
+          className={`${style["inspire-images"]}`}
+        ></img>
+        <img
+          style={{
+            width: "40%",
+            left: "10%",
+            bottom: "10%",
+            animationDelay: `2000ms`,
+          }}
+          src="./inspire/sideplate1.png"
           className={`${style["inspire-images"]}`}
         ></img>
         <p

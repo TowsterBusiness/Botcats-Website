@@ -4,23 +4,26 @@ import style from "./App.module.css";
 const cardData = [
   {
     title: "Innovation",
-    content: "We build creative and effective robot designs.",
-  },
-  {
-    title: "Teamwork",
-    content: "Collaboration is the key to our success on and off the field.",
+    content:
+      "Researching methods of weight optimization to increase maneuverability and acceleration.",
   },
   {
     title: "Community",
-    content: "Engaging with and giving back to our community.",
+    content:
+      "In the last year, we designed and donated dog and cat toys to shelters affected by the LA fires, gave presentations to five different local schools, and connected with an FTC team in Libya",
   },
+
+    
+
   {
     title: "STEM",
-    content: "Promoting Science, Technology, Engineering, and Math.",
+    content:
+      "Our recent growth has welcomed a new wave of students dedicated to engineering bold designs, mentoring peers, and serving our community.",
   },
   {
-    title: "Gracious Professionalism",
-    content: "Competing with integrity and respect for all.",
+    title: "Growth",
+    content:
+      "Last year, we won our League Tournament, advanced to Regionals and placed second for Inspire, and this year we are confident we can achieve our competition goals.",
   },
 ];
 
@@ -29,7 +32,9 @@ function ScrollingInfo() {
 
   return (
     <>
-      <div className={style["scrolling-title"]}>Achievements</div>
+      <div style={{ textAlign: "center" }}>
+        <div className={style["scrolling-title"]}>Achievements</div>
+      </div>
       <div className={style["scrolling-container"]}>
         <div className={style["scrolling-content"]}>
           {[...cardData, ...cardData].map((item, index) => (
